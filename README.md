@@ -34,7 +34,8 @@ and deleting users in MongoDB.
    node server.js
    ```
 
-The server listens at `http://localhost:3000`. It exits with an error if
+The server listens locally at `http://localhost:3000`. The hosted API is
+available at `https://testapi-zc2c.onrender.com`. The app exits with an error if
 `MONGODB_URI` is missing; check the startup output to confirm the database
 connection succeeded.
 
@@ -53,7 +54,7 @@ All endpoints use JSON. A user has the following fields:
 `POST /users`
 
 ```bash
-curl -X POST http://localhost:3000/users \
+curl -X POST https://testapi-zc2c.onrender.com/users \
   -H 'Content-Type: application/json' \
   -d '{"name":"Ada Lovelace","email":"ada@example.com","age":36}'
 ```
@@ -65,7 +66,7 @@ Returns the created user with status `201`.
 `GET /users`
 
 ```bash
-curl http://localhost:3000/users
+curl https://testapi-zc2c.onrender.com/users
 ```
 
 Returns an array of users.
@@ -75,7 +76,7 @@ Returns an array of users.
 `PUT /users/:id`
 
 ```bash
-curl -X PUT http://localhost:3000/users/USER_ID \
+curl -X PUT https://testapi-zc2c.onrender.com/users/USER_ID \
   -H 'Content-Type: application/json' \
   -d '{"age":37}'
 ```
@@ -88,7 +89,7 @@ or `404` if no user exists with that ID.
 `DELETE /users/:id`
 
 ```bash
-curl -X DELETE http://localhost:3000/users/USER_ID
+curl -X DELETE https://testapi-zc2c.onrender.com/users/USER_ID
 ```
 
 Replace `USER_ID` with the user's MongoDB document ID. Returns a success
